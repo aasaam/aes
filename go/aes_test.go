@@ -59,7 +59,7 @@ func TestDecryptionFailed(t *testing.T) {
 }
 
 func TestEncryptionDecryptionCross(t *testing.T) {
-	jsonFile, _ := os.Open("../../test.json")
+	jsonFile, _ := os.Open("../test.json")
 	defer jsonFile.Close()
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	var test Test
