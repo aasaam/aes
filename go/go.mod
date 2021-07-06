@@ -1,3 +1,3 @@
-module github.com/aasaam/aes/go/aes
+module github.com/aasaam/aes/go
 
 go 1.16
