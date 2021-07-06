@@ -1,0 +1,9 @@
+go/aasaam_aes/coverage*
+
+node/coverage/
+node/node_modules/
+node/package-lock.json
+
+php/.phpunit.cache/
+php/vendor/
+php/composer.lock

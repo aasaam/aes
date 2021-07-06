@@ -1,0 +1,29 @@
+name: go
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run:
+    runs-on: ${{ matrix.operating-system }}
+    defaults:
+      run:
+        working-directory: go/aes
+    strategy:
+      matrix:
+        operating-system: ['ubuntu-latest']
+        go: [ '1.16']
+    steps:
+      - uses: actions/checkout@v2
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v2
+        with:
+          version: latest
+          working-directory: go/aes
+      - name: Setup go
+        uses: actions/setup-go@v1
+        with:
+          go-version: ${{ matrix.go }}
+      - run: go test -covermode=count -coverprofile=coverage.out
