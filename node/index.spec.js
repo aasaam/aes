@@ -13,7 +13,9 @@ describe('aasaamAES', () => {
     );
     const aes = new AasaamAES(test.key);
     const decryptedTest = aes.decrypt(test.encrypted);
+    const decryptedTestTTL = aes.decryptTTL(test.encryptedTTL);
     expect(decryptedTest).toEqual(test.message);
+    expect(decryptedTestTTL).toEqual(test.message);
     const encryptedTTLMessage = aes.encryptTTL(test.message, 1);
     const decrypted1 = aes.decryptTTL(encryptedTTLMessage);
     expect(decrypted1).toEqual(test.message);

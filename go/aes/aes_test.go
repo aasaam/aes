@@ -9,9 +9,10 @@ import (
 )
 
 type Test struct {
-	Key       string `json:"key"`
-	Message   string `json:"message"`
-	Encrypted string `json:"encrypted"`
+	Key          string `json:"key"`
+	Message      string `json:"message"`
+	Encrypted    string `json:"encrypted"`
+	EncryptedTTL string `json:"encryptedTTL"`
 }
 
 func TestGenerateKey(t *testing.T) {
@@ -69,6 +70,10 @@ func TestEncryptionDecryptionCross(t *testing.T) {
 	aes := NewAasaamAES(test.Key)
 	sameMessage := aes.Decrypt(test.Encrypted)
 	if sameMessage != test.Message {
+		t.Errorf("Cross langauge Decryption failed")
+	}
+	sameMessageTTL := aes.DecryptTTL(test.EncryptedTTL)
+	if sameMessageTTL != test.Message {
 		t.Errorf("Cross langauge Decryption failed")
 	}
 }

@@ -54,6 +54,7 @@ class AasaamAES {
         return message;
       }
     } catch (e) {
+
       // nothing
     }
 

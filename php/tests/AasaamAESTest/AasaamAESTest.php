@@ -34,6 +34,9 @@ final class AasaamAESTest extends TestCase
         $encryptedTtl = $aes->encryptTTL($test['message'], 1);
         $decryptedTtl = $aes->decryptTTL($encryptedTtl);
 
+        $decryptedTtl2 = $aes->decryptTTL($test['encryptedTTL']);
+        $this->assertEquals($decryptedTtl2, $test['message']);
+
         $decryptedFailed1 = $aes->decryptTTL($encrypted);
         $decryptedFailed2 = $aes->decryptTTL("2");
         $decryptedFailed3 = $aes->decrypt("2");
