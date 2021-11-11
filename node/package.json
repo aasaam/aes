@@ -40,7 +40,7 @@
     "@types/node": "^16",
     "@typescript-eslint/experimental-utils": "^4",
     "eslint": "^7",
-    "eslint-config-airbnb": "^18",
+    "eslint-config-airbnb": "^19",
     "eslint-config-prettier": "^8",
     "eslint-plugin-import": "^2",
     "eslint-plugin-sonarjs": "^0",
